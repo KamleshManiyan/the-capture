@@ -1,35 +1,39 @@
 import React from "react";
+import { motion } from "framer-motion";
 // Imgaes
 import home1 from "../img/home1.png";
+import { About, Description, Image, Hide } from "../style";
 
 function AboutSection() {
   return (
-    <div className="aboutSection">
-      <div className="aboutSection__description">
-        <div className="title">
-          <div className="hide">
-            <h2>We work to make</h2>
-          </div>
-          <div className="hide">
+    <About>
+      <Description>
+        <motion.div>
+          <Hide>
+            <motion.h2>We work to make</motion.h2>
+          </Hide>
+          <Hide>
             <h2>
               your <span>dreams</span>
             </h2>
-          </div>
-          <div className="hide">
+          </Hide>
+          <Hide>
             <h2>comes true</h2>
-          </div>
-        </div>
+          </Hide>
+        </motion.div>
         <p>
           Contact us for photography or videography ideas that you have. We have
           professions with amazing skills to help you achieve it.
         </p>
         <button>Contact US</button>
-      </div>
-      <div className="aboutSection__img">
+      </Description>
+      <Image>
         <img src={home1} alt="Image" />
-      </div>
-    </div>
+      </Image>
+    </About>
   );
 }
+
+// Styled Components
 
 export default AboutSection;
