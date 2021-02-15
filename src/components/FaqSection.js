@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { About } from "../style";
+import Toggle from "./Toggle";
+import { AnimateSharedLayout } from "framer-motion";
+import { fade } from "../pages/Animation";
+import { motion } from "framer-motion";
 
 function FaqSection() {
   return (
@@ -8,49 +12,43 @@ function FaqSection() {
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
-      <div className="question">
-        <h4>How DO I Start?</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>Daliy Schedule?</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-            suscipit soluta enim amet?
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>Different Payment Methods?</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At impedit,
-            illo harum voluptatibus voluptatem exercitationem! Est velit
-            asperiores vel cum.
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>What Products Do You Offer?</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-            perferendis ullam soluta officiis dignissimos illum doloribus
-            explicabo expedita?
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
+      <AnimateSharedLayout>
+        <Toggle title="How DO I Start?">
+          <motion.div className="answer" variants={fade}>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          </motion.div>
+        </Toggle>
+        <Toggle title="Daliy Schedule?">
+          <motion.div className="answer" variants={fade}>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+              suscipit soluta enim amet?
+            </p>
+          </motion.div>
+        </Toggle>
+        <Toggle title="Different Payment Methods?">
+          <motion.div className="answer" variants={fade}>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+              impedit, illo harum voluptatibus voluptatem exercitationem! Est
+              velit asperiores vel cum.
+            </p>
+          </motion.div>
+        </Toggle>
+        <Toggle title="What Products Do You Offer?">
+          <motion.div className="answer" variants={fade}>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Distinctio perferendis ullam soluta officiis dignissimos illum
+              doloribus explicabo expedita?
+            </p>
+          </motion.div>
+        </Toggle>
+      </AnimateSharedLayout>
     </Faq>
   );
 }
