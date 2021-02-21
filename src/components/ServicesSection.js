@@ -6,12 +6,19 @@ import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
 import { About, Description, Image, Hide } from "../style";
 import styled from "styled-components";
-
+import { scrollReveal, imgAnim } from "../Animation";
+import { useScroll } from "./useScroll";
 // import Image
 import home2 from "../img/home2.png";
 function ServicesSection() {
+  const [element, controls] = useScroll();
   return (
-    <Services>
+    <Services
+      ref={element}
+      variants={scrollReveal}
+      initial="hidden"
+      animate={controls}
+    >
       <Description>
         <h2>
           High <span>quality</span> services.
@@ -67,6 +74,9 @@ const Services = styled(About)`
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 1120px) {
+    justify-content: center;
+  }
 `;
 
 const Card = styled.div`

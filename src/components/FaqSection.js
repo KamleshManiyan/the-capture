@@ -2,51 +2,60 @@ import React from "react";
 import styled from "styled-components";
 import { About } from "../style";
 import Toggle from "./Toggle";
-import { AnimateSharedLayout } from "framer-motion";
-import { fade } from "../pages/Animation";
 import { motion } from "framer-motion";
+import { AnimateSharedLayout } from "framer-motion";
+import { fade, scrollReveal } from "../Animation";
+import { useScroll } from "./useScroll";
 
 function FaqSection() {
+  const [element, controls] = useScroll();
   return (
-    <Faq>
+    <Faq
+      variants={scrollReveal}
+      ref={element}
+      animate={controls}
+      initial="hidden"
+    >
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
       <AnimateSharedLayout>
-        <Toggle title="How DO I Start?">
-          <motion.div className="answer" variants={fade}>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-          </motion.div>
-        </Toggle>
-        <Toggle title="Daliy Schedule?">
-          <motion.div className="answer" variants={fade}>
+        <Toggle title="How Do I Start?">
+          <div className="answer">
             <p>Lorem ipsum dolor sit amet.</p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              suscipit soluta enim amet?
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
+              autem accusamus ex laboriosam porro, adipisci quam voluptatum
+              magnam placeat corporis.
             </p>
-          </motion.div>
+          </div>
         </Toggle>
-        <Toggle title="Different Payment Methods?">
-          <motion.div className="answer" variants={fade}>
+        <Toggle title="Daily Schedule">
+          <div className="answer">
             <p>Lorem ipsum dolor sit amet.</p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-              impedit, illo harum voluptatibus voluptatem exercitationem! Est
-              velit asperiores vel cum.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error,
+              totam.
             </p>
-          </motion.div>
+          </div>
         </Toggle>
-        <Toggle title="What Products Do You Offer?">
-          <motion.div className="answer" variants={fade}>
+        <Toggle title="Diferrent Payment Methods">
+          <div className="answer">
             <p>Lorem ipsum dolor sit amet.</p>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Distinctio perferendis ullam soluta officiis dignissimos illum
-              doloribus explicabo expedita?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Necessitatibus, neque.
             </p>
-          </motion.div>
+          </div>
+        </Toggle>
+        <Toggle title="What Products do you offer.">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Necessitatibus, neque.
+            </p>
+          </div>
         </Toggle>
       </AnimateSharedLayout>
     </Faq>
@@ -55,6 +64,7 @@ function FaqSection() {
 
 const Faq = styled(About)`
   display: block;
+  overflow: hidden;
   span {
     display: block;
   }

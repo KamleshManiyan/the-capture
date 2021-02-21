@@ -3,7 +3,8 @@ import AboutSection from "../components/AboutSection";
 import ServicesSection from "../components/ServicesSection";
 import FaqSection from "../components/FaqSection";
 import { motion } from "framer-motion";
-import { pageAnimation } from "./Animation";
+import { pageAnimation } from "../Animation";
+import ScrollTop from "../components/scrollTop";
 
 function AboutUS() {
   return (
@@ -12,11 +13,11 @@ function AboutUS() {
       variants={pageAnimation}
       initial="hidden"
       animate="show"
-      className="aboutUS"
     >
       <AboutSection />
       <ServicesSection />
       <FaqSection />
+      <ScrollTop />
     </motion.div>
   );
 }
